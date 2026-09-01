@@ -55,7 +55,7 @@ const tabChangeHandler = function (tabId: number, changeInfo: chrome.tabs.TabCha
 };
 chrome.tabs.onUpdated.addListener(tabChangeHandler);
 
-chrome.browserAction.onClicked.addListener(function () {
+chrome.action.onClicked.addListener(function () {
     chrome.tabs.query({ active: true }, function (tabs) {
         tabs.forEach(tab => {
             if (tab.url) {
