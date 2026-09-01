@@ -7,7 +7,7 @@ interface storeOptions {
 class App {
     addHostnameIfNot(url: string, callback: (added: boolean) => void) {
         const hostname = new URL(url).hostname;
-        chrome.storage.local.get(HOSTNAMES, function (storage) {
+        chrome.storage.local.get(HOSTNAMES, function (storage: any) {
             var data: [string] | null = storage?.hostnames;
             if (data) {
                 const notExists = data.indexOf(hostname) == -1;
@@ -43,8 +43,8 @@ const app = new App();
 const tabChangeHandler = function (tabId: number, changeInfo: chrome.tabs.TabChangeInfo, _tab: chrome.tabs.Tab) {
     if (changeInfo.url) {
         const url = new URL(changeInfo.url);
-        chrome.storage.local.get(HOSTNAMES, function (stroage) {
-            const hostnames = (stroage as storeOptions)?.hostnames ?? [];
+        chrome.storage.local.get(HOSTNAMES, function (storage: any) {
+            const hostnames = (storage as storeOptions)?.hostnames ?? [];
             hostnames.forEach(hostname => {
                 if (hostname === url.hostname) {
                     app.toggleMute(tabId);
@@ -56,8 +56,8 @@ const tabChangeHandler = function (tabId: number, changeInfo: chrome.tabs.TabCha
 chrome.tabs.onUpdated.addListener(tabChangeHandler);
 
 chrome.action.onClicked.addListener(function () {
-    chrome.tabs.query({ active: true }, function (tabs) {
-        tabs.forEach(tab => {
+    chrome.tabs.query({ active: true }, function (tabs: any[]) {
+        tabs.forEach((tab: any) => {
             if (tab.url) {
                 app.addHostnameIfNot(tab.url!, added => {
                     if (added) {

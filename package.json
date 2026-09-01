@@ -13,8 +13,9 @@
     "@types/chrome": "0.0.128"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.1",
     "gulp-typescript": "^6.0.0-alpha.1",
-    "gulp-zip": "^5.0.2"
+    "gulp-zip": "^5.0.2",
+    "typescript": "^7.0.0"
   }
 }

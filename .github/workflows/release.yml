@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
       
       - name: Install dependencies
         run: npm install
@@ -27,7 +27,7 @@ jobs:
         run: npx gulp
       
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: mute-all-chrome-extension.zip
         env:
