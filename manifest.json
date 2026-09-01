@@ -2,7 +2,7 @@
    "manifest_version": 3,
    "name": "Mute Site",
    "description": "Mute sites by hostname completely",
-   "version": "0.1",
+   "version": "0.2",
    "short_name": "mute-site",
    "default_locale": "en",
    "homepage_url": "https://github.com/cedric05/mute-extension",
