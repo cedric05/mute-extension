@@ -2,7 +2,11 @@
   "name": "mute-extension",
   "version": "1.0.0",
   "description": "mute site",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc && gulp",
+    "compile": "tsc",
+    "package": "gulp"
+  },
   "author": "",
   "license": "MIT",
   "dependencies": {
