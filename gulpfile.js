@@ -18,7 +18,7 @@ function copyData() {
         .pipe(dest('dist/data/'));
 }
 
-function copyData() {
+function copyLocales() {
     return src('_locales/**')
         .pipe(dest('dist/_locales/'));
 }
@@ -27,4 +27,4 @@ function zipAll() {
     return src('dist/**').pipe(zip('mute-all-chrome-extension.zip')).pipe(dest('.'))
 }
 
-exports.default = series(copyTypescript, copyManifest, copyData, zipAll);
+exports.default = series(copyTypescript, copyManifest, copyData, copyLocales, zipAll);
